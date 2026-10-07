@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Student Feedback Management";
+}
+
+<h2>Student Feedback Management</h2>
+
+<hr />
+
+<h3>Select an Option</h3>
+
+<p>
+    @Html.ActionLink(
+        "Give Feedback",
+        "Create",
+        "Feedback"
+    )
+</p>
+
+<p>
+    @Html.ActionLink(
+        "View Feedback",
+        "Index",
+        "Feedback"
+    )
+</p>

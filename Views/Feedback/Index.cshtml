@@ -1,0 +1,56 @@
+﻿@model List<Practical_7.Models.Feedback>
+
+@{
+    ViewBag.Title = "View Feedback";
+}
+
+<h2>Student Feedback List</h2>
+
+<p>
+    @Html.ActionLink(
+        "Give Feedback",
+        "Create",
+        "Feedback"
+    )
+</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+
+    <tr>
+        <th>Enrollment No</th>
+        <th>Student Name</th>
+        <th>Subject</th>
+        <th>Rating</th>
+        <th>Comments</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EnrollmentNo</td>
+            <td>@item.StudentName</td>
+            <td>@item.Subject</td>
+            <td>@item.Rating</td>
+            <td>@item.Comments</td>
+            <td>
+                @Html.ActionLink(
+                    "View",
+                    "View",
+                    "Feedback",
+                    new { enrollmentNo = item.EnrollmentNo },
+                    null
+                )
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+
+@Html.ActionLink(
+    "Back to Home",
+    "Home",
+    "Feedback"
+)

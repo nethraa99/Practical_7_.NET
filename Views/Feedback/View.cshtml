@@ -1,0 +1,59 @@
+﻿@model Practical_7.Models.Feedback
+
+@{
+    ViewBag.Title = "Feedback Details";
+}
+
+<h2>Feedback Details</h2>
+
+@Html.Partial(
+    "~/Views/Shared/Studentinfo.cshtml",
+    Model
+)
+
+<hr />
+
+<table border="1" cellpadding="5" cellspacing="0">
+
+    <tr>
+        <th>Enrollment No</th>
+        <td>@Model.EnrollmentNo</td>
+    </tr>
+
+    <tr>
+        <th>Student Name</th>
+        <td>@Model.StudentName</td>
+    </tr>
+
+    <tr>
+        <th>Subject</th>
+        <td>@Model.Subject</td>
+    </tr>
+
+    <tr>
+        <th>Rating</th>
+        <td>@Model.Rating</td>
+    </tr>
+
+    <tr>
+        <th>Comments</th>
+        <td>@Model.Comments</td>
+    </tr>
+
+</table>
+
+<br />
+
+@Html.ActionLink(
+    "Back to Feedback List",
+    "Index",
+    "Feedback"
+)
+
+<br />
+
+@Html.ActionLink(
+    "Back to Home",
+    "Home",
+    "Feedback"
+)

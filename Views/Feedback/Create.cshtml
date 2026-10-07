@@ -1,0 +1,84 @@
+﻿@model Practical_7.Models.Feedback
+
+@{
+    ViewBag.Title = "Create Feedback";
+}
+
+<h2>Student Feedback Form</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.LabelFor(model => model.EnrollmentNo)
+        <br />
+        @Html.TextBoxFor(model => model.EnrollmentNo)
+        <br />
+        @Html.ValidationMessageFor(model => model.EnrollmentNo)
+    </div>
+
+    <br />
+
+    <div>
+        @Html.LabelFor(model => model.StudentName)
+        <br />
+        @Html.TextBoxFor(model => model.StudentName)
+        <br />
+        @Html.ValidationMessageFor(model => model.StudentName)
+    </div>
+
+    <br />
+
+    <div>
+        @Html.LabelFor(model => model.Subject)
+        <br />
+        @Html.TextBoxFor(model => model.Subject)
+        <br />
+        @Html.ValidationMessageFor(model => model.Subject)
+    </div>
+
+    <br />
+
+    <div>
+        @Html.LabelFor(model => model.Rating)
+        <br />
+
+        @Html.DropDownListFor(
+            model => model.Rating,
+            new SelectList(new[]
+            {
+                new { Value = "1", Text = "1 - Poor" },
+                new { Value = "2", Text = "2 - Average" },
+                new { Value = "3", Text = "3 - Good" },
+                new { Value = "4", Text = "4 - Very Good" },
+                new { Value = "5", Text = "5 - Excellent" }
+            }, "Value", "Text"),
+            "-- Select Rating --"
+        )
+
+        <br />
+        @Html.ValidationMessageFor(model => model.Rating)
+    </div>
+
+    <br />
+
+    <div>
+        @Html.LabelFor(model => model.Comments)
+        <br />
+        @Html.TextAreaFor(model => model.Comments, 4, 40, null)
+        <br />
+        @Html.ValidationMessageFor(model => model.Comments)
+    </div>
+
+    <br />
+
+    <input type="submit" value="Submit Feedback" />
+
+    @Html.ActionLink(
+        "Back to List",
+        "Index",
+        "Feedback"
+    )
+}
+
